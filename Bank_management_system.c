@@ -546,21 +546,6 @@ void loan_service()
             }
             printf("\nLoan Renewal Successful for Account %lld, Loan %lld.\n", search_acc_no, loan_no);
             printf("New Additional Interest Rate: %.2f%%\n", new_interest_rate);
-            FILE *file = fopen("RenewalLoans.txt", "a");
-            if (file == NULL)
-            {
-                printf("Error opening file!\n");
-                return;
-            }
-            fprintf(file, "Name: %s\n", name);
-            fprintf(file, "Loan Account Number: %d\n", loan_acc_no);
-            fprintf(file, "Type of Loan: %s\n", acc_type);
-            fprintf(file, "Branch Number: %d\n", branch_no);
-            fprintf(file, "Slot Date: %s\n", slot_date);
-            fprintf(file, "Slot Time: %s:%s\n", hour,minute);
-            fprintf(file, "Renewal Details:%f\n",new_interest_rate);
-            fprintf(file, "----------------------------------------------\n");
-            fclose(file);
             printf("\n\nPress any key to exit.....");
             getch();
             loan_service();
